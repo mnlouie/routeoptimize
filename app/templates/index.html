@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>A Leaflet map!</title>
+  <!-- mapbox API -->
+	<script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+
+  <!--link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
+  <style>
+    #map{ width: 900px; height: 500px; }
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <script>
+
+  // initialize the map
+  L.mapbox.accessToken = 'pk.eyJ1IjoiYXN0cm9taXMiLCJhIjoiY2llb21xbWc3MGh5d3NzbTI1d2tobm9lciJ9.AIRuntjIXEdNM5ewRSysbA';
+// Create a map in the div #map
+
+var map = L.mapbox.map('map', 'astromis.cieomqluw0hzzsym3glv43rp8')
+    .setView([40.69530000,-73.995900000], 12);
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>BK Crawl Planner</title>
+
+<!-- Bootstrap core CSS -->
+<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- mapbox API -->
+<script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+
+<!-- Custom styles for this template -->
+<link href="starter-template.css" rel="stylesheet">
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+  <style>
+    #map{ width: 500px; height: 300px; padding-left: 150px}
+  </style>
+
+<!-- Javascript variiable definiation -->
+<script>
+var start_js = '{{start}}'
+var startlat_js = '{{startlat}}'
+var startlng_js= '{{startlng}}'
+var bar_js = '{{bar}}'
+var barlat_js= '{{barlat}}'
+var barlng_js= '{{barlng}}'
+var end_js = '{{end}}'
+var endlat_js= '{{endlat}}'
+var endlng_js= '{{endlng}}'
+
+
+var path1 = '{{path_list[0]}}'
+var path2 = '{{path_list[1]}}'
+</script>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="#">BK Crawl Planner</a>
+</div>
+<div id="navbar" class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li class="active"><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div><!--/.nav-collapse -->
+</div>
+</nav>
+
+<br><br>
+
+
+    <div class="container">
+      <div class="starter-template">
+        <h3>Results:</h3>
+        <p class="lead">Check out your crawl! </p>
+      </div>
+    </div>
+    <div class="container">
+
+<table class="table table-hover">
+    <tr><th>Start</th><th>Bar </th><th>End </th></tr>
+    <tr><td>{{ start }}</td><td>{{ bar }}</td><td> {{ end }}</td></tr>
+    </table>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    </div>
+
+
+<div id="map"></div>
+
+  <script>
+
+  // initialize the map
+  L.mapbox.accessToken = 'pk.eyJ1IjoiYXN0cm9taXMiLCJhIjoiY2llb21xbWc3MGh5d3NzbTI1d2tobm9lciJ9.AIRuntjIXEdNM5ewRSysbA';
+// Create a map in the div #map
+
+var map = L.mapbox.map('map', 'astromis.cieomqluw0hzzsym3glv43rp8')
+    .setView([40.69530000,-73.995900000], 13);
+
+L.marker([startlat_js,startlng_js]).addTo(map)
+    .bindPopup(start_js);
+
+L.marker([barlat_js, barlng_js]).addTo(map)
+    .bindPopup(bar_js)
+    .openPopup();
+
+L.marker([endlat_js,endlng_js]).addTo(map)
+    .bindPopup(end_js);
+
+var pointA = L.LatLng(40.6715926, -73.9977694);
+var pointB = L.LatLng(40.6721973, -73.9882649);
+var pointList = [pointA, pointB];
+
+L.polyline(porintList, {color: 'red'}).addTo(map);
+
+// zoom the map to the polyline
+//map.fitBounds(polyline.getBounds());
+
+  </script>
+
+  
+    <div class="container">
+      <div class="starter-template">
+        <h3>Crawl Directions:</h3>
+        <p class="lead">  The directions from start to first bar is:
+         <br> {{ path_list[0] }} 
+          <br> The directions bar to end is:
+          <br> {{ path_list[1]}}
+        </p>
+
+        <h3>
+           Enjoy and remember to always crawl safely.
+        </h3>
+      </div>
+
+
+      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+      <script src="static/js/bootstrap.min.js"></script>
+
+
+     </div><!-- /.container -->
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

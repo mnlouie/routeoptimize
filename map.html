@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+   <link rel="stylesheet" href="https://rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
+   <script src="https://rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+
+   <link rel="stylesheet" href="https://birdage.github.io/Leaflet.awesome-markers/dist/leaflet.awesome.rotate.css">
+
+   
+   
+   
+   
+
+   <style>
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+      }
+
+   </style>
+</head>
+
+<body>
+
+   <div class="folium-map" id="folium_211a7fd5c0224bf0a4fa6248dac58fe5" style="width: 100%; height: 100%"></div>
+
+   <script>
+
+      
+
+      var base_tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          minZoom: 1,
+          attribution: 'Map data (c) <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+      });
+
+      var baseLayer = {
+        "Base Layer": base_tile
+      };
+
+      /*
+      addition of the wms layers
+      */
+
+      
+
+      /*
+      addition of the tile layers
+      */
+      
+
+      /*
+      list of layers to be added
+      */
+      var layer_list = {
+      
+      };
+
+      /*
+      Bounding box.
+      */
+      var southWest = L.latLng(-90, -180),
+          northEast = L.latLng(90, 180),
+          bounds = L.latLngBounds(southWest, northEast);
+
+      /*
+      Creates the map and adds the selected layers
+      */
+      var map = L.map('folium_211a7fd5c0224bf0a4fa6248dac58fe5', {
+                                       center:[40.69, -73.98],
+                                       zoom: 15,
+                                       maxBounds: bounds,
+                                       layers: [base_tile]
+                                     });
+
+      L.control.layers(baseLayer, layer_list).addTo(map);
+
+      //cluster group
+      var clusteredmarkers = L.markerClusterGroup();
+      //section for adding clustered markers
+      
+      //add the clustered markers to the group anyway
+      map.addLayer(clusteredmarkers);
+
+      
+      var marker_1_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_1 = L.marker([40.694673, 
+							-73.980732],
+							{'icon':marker_1_icon}
+							);
+      marker_1.bindPopup("Mt. Hood Meadows");
+      marker_1._popup.options.maxWidth = 300;
+      map.addLayer(marker_1)
+      
+      var marker_2_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_2 = L.marker([40.694004, 
+							-73.980372],
+							{'icon':marker_2_icon}
+							);
+      marker_2.bindPopup("Mt. Hood Meadows");
+      marker_2._popup.options.maxWidth = 300;
+      map.addLayer(marker_2)
+      
+      var marker_3_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_3 = L.marker([40.694032, 
+							-73.980951],
+							{'icon':marker_3_icon}
+							);
+      marker_3.bindPopup("Mt. Hood Meadows");
+      marker_3._popup.options.maxWidth = 300;
+      map.addLayer(marker_3)
+      
+      var marker_4_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_4 = L.marker([40.686641, 
+							-73.9798125],
+							{'icon':marker_4_icon}
+							);
+      marker_4.bindPopup("Mt. Hood Meadows");
+      marker_4._popup.options.maxWidth = 300;
+      map.addLayer(marker_4)
+      
+      var marker_5_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_5 = L.marker([40.685324, 
+							-73.980702],
+							{'icon':marker_5_icon}
+							);
+      marker_5.bindPopup("Mt. Hood Meadows");
+      marker_5._popup.options.maxWidth = 300;
+      map.addLayer(marker_5)
+      
+      var marker_6_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_6 = L.marker([40.685959, 
+							-73.980272],
+							{'icon':marker_6_icon}
+							);
+      marker_6.bindPopup("Mt. Hood Meadows");
+      marker_6._popup.options.maxWidth = 300;
+      map.addLayer(marker_6)
+      
+      var marker_7_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_7 = L.marker([40.69168, 
+							-73.972553],
+							{'icon':marker_7_icon}
+							);
+      marker_7.bindPopup("Mt. Hood Meadows");
+      marker_7._popup.options.maxWidth = 300;
+      map.addLayer(marker_7)
+      
+      var marker_8_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_8 = L.marker([40.693036, 
+							-73.984292],
+							{'icon':marker_8_icon}
+							);
+      marker_8.bindPopup("Mt. Hood Meadows");
+      marker_8._popup.options.maxWidth = 300;
+      map.addLayer(marker_8)
+      
+      var marker_9_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_9 = L.marker([40.6936123, 
+							-73.9817371],
+							{'icon':marker_9_icon}
+							);
+      marker_9.bindPopup("Mt. Hood Meadows");
+      marker_9._popup.options.maxWidth = 300;
+      map.addLayer(marker_9)
+      
+      var marker_10_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_10 = L.marker([40.689901, 
+							-73.980429],
+							{'icon':marker_10_icon}
+							);
+      marker_10.bindPopup("Mt. Hood Meadows");
+      marker_10._popup.options.maxWidth = 300;
+      map.addLayer(marker_10)
+      
+      var marker_11_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_11 = L.marker([40.689622, 
+							-73.973126],
+							{'icon':marker_11_icon}
+							);
+      marker_11.bindPopup("Mt. Hood Meadows");
+      marker_11._popup.options.maxWidth = 300;
+      map.addLayer(marker_11)
+      
+      var marker_12_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_12 = L.marker([40.6933798, 
+							-73.975848],
+							{'icon':marker_12_icon}
+							);
+      marker_12.bindPopup("Mt. Hood Meadows");
+      marker_12._popup.options.maxWidth = 300;
+      map.addLayer(marker_12)
+      
+      var marker_13_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_13 = L.marker([40.689018, 
+							-73.986155],
+							{'icon':marker_13_icon}
+							);
+      marker_13.bindPopup("Mt. Hood Meadows");
+      marker_13._popup.options.maxWidth = 300;
+      map.addLayer(marker_13)
+      
+      var marker_14_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_14 = L.marker([40.68733, 
+							-73.981817],
+							{'icon':marker_14_icon}
+							);
+      marker_14.bindPopup("Mt. Hood Meadows");
+      marker_14._popup.options.maxWidth = 300;
+      map.addLayer(marker_14)
+      
+      var marker_15_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_15 = L.marker([40.694412, 
+							-73.976052],
+							{'icon':marker_15_icon}
+							);
+      marker_15.bindPopup("Mt. Hood Meadows");
+      marker_15._popup.options.maxWidth = 300;
+      map.addLayer(marker_15)
+      
+      var marker_16_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_16 = L.marker([40.6908697, 
+							-73.9753126],
+							{'icon':marker_16_icon}
+							);
+      marker_16.bindPopup("Mt. Hood Meadows");
+      marker_16._popup.options.maxWidth = 300;
+      map.addLayer(marker_16)
+      
+      var marker_17_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_17 = L.marker([40.690336, 
+							-73.9761195],
+							{'icon':marker_17_icon}
+							);
+      marker_17.bindPopup("Mt. Hood Meadows");
+      marker_17._popup.options.maxWidth = 300;
+      map.addLayer(marker_17)
+      
+      var marker_18_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_18 = L.marker([40.6921583, 
+							-73.9750122],
+							{'icon':marker_18_icon}
+							);
+      marker_18.bindPopup("Mt. Hood Meadows");
+      marker_18._popup.options.maxWidth = 300;
+      map.addLayer(marker_18)
+      
+      var marker_19_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_19 = L.marker([40.6908661, 
+							-73.9746941],
+							{'icon':marker_19_icon}
+							);
+      marker_19.bindPopup("Mt. Hood Meadows");
+      marker_19._popup.options.maxWidth = 300;
+      map.addLayer(marker_19)
+      
+      var marker_20_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_20 = L.marker([40.6904922, 
+							-73.9770808],
+							{'icon':marker_20_icon}
+							);
+      marker_20.bindPopup("Mt. Hood Meadows");
+      marker_20._popup.options.maxWidth = 300;
+      map.addLayer(marker_20)
+      
+      var marker_21_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_21 = L.marker([40.6914294, 
+							-73.9740166],
+							{'icon':marker_21_icon}
+							);
+      marker_21.bindPopup("Mt. Hood Meadows");
+      marker_21._popup.options.maxWidth = 300;
+      map.addLayer(marker_21)
+      
+      var marker_22_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_22 = L.marker([40.6901355, 
+							-73.9771069],
+							{'icon':marker_22_icon}
+							);
+      marker_22.bindPopup("Mt. Hood Meadows");
+      marker_22._popup.options.maxWidth = 300;
+      map.addLayer(marker_22)
+      
+      var marker_23_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_23 = L.marker([40.6902319, 
+							-73.9770121],
+							{'icon':marker_23_icon}
+							);
+      marker_23.bindPopup("Mt. Hood Meadows");
+      marker_23._popup.options.maxWidth = 300;
+      map.addLayer(marker_23)
+      
+      var marker_24_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_24 = L.marker([40.6912859, 
+							-73.9772512],
+							{'icon':marker_24_icon}
+							);
+      marker_24.bindPopup("Mt. Hood Meadows");
+      marker_24._popup.options.maxWidth = 300;
+      map.addLayer(marker_24)
+      
+      var marker_25_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_25 = L.marker([40.6917117, 
+							-73.9739184],
+							{'icon':marker_25_icon}
+							);
+      marker_25.bindPopup("Mt. Hood Meadows");
+      marker_25._popup.options.maxWidth = 300;
+      map.addLayer(marker_25)
+      
+      var marker_26_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_26 = L.marker([40.6932527, 
+							-73.972851],
+							{'icon':marker_26_icon}
+							);
+      marker_26.bindPopup("Mt. Hood Meadows");
+      marker_26._popup.options.maxWidth = 300;
+      map.addLayer(marker_26)
+      
+      var marker_27_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_27 = L.marker([40.689631, 
+							-73.985739],
+							{'icon':marker_27_icon}
+							);
+      marker_27.bindPopup("Mt. Hood Meadows");
+      marker_27._popup.options.maxWidth = 300;
+      map.addLayer(marker_27)
+      
+      var marker_28_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_28 = L.marker([40.693341, 
+							-73.966881],
+							{'icon':marker_28_icon}
+							);
+      marker_28.bindPopup("Mt. Hood Meadows");
+      marker_28._popup.options.maxWidth = 300;
+      map.addLayer(marker_28)
+      
+      var marker_29_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_29 = L.marker([40.694275, 
+							-73.974999],
+							{'icon':marker_29_icon}
+							);
+      marker_29.bindPopup("Mt. Hood Meadows");
+      marker_29._popup.options.maxWidth = 300;
+      map.addLayer(marker_29)
+      
+      var marker_30_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_30 = L.marker([40.694287, 
+							-73.974586],
+							{'icon':marker_30_icon}
+							);
+      marker_30.bindPopup("Mt. Hood Meadows");
+      marker_30._popup.options.maxWidth = 300;
+      map.addLayer(marker_30)
+      
+      var marker_31_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_31 = L.marker([40.694271, 
+							-73.974342],
+							{'icon':marker_31_icon}
+							);
+      marker_31.bindPopup("Mt. Hood Meadows");
+      marker_31._popup.options.maxWidth = 300;
+      map.addLayer(marker_31)
+      
+      var marker_32_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_32 = L.marker([40.694227, 
+							-73.982481],
+							{'icon':marker_32_icon}
+							);
+      marker_32.bindPopup("Mt. Hood Meadows");
+      marker_32._popup.options.maxWidth = 300;
+      map.addLayer(marker_32)
+      
+      var marker_33_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_33 = L.marker([40.6936442, 
+							-73.9824992],
+							{'icon':marker_33_icon}
+							);
+      marker_33.bindPopup("Mt. Hood Meadows");
+      marker_33._popup.options.maxWidth = 300;
+      map.addLayer(marker_33)
+      
+      var marker_34_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_34 = L.marker([40.689358, 
+							-73.982098],
+							{'icon':marker_34_icon}
+							);
+      marker_34.bindPopup("Mt. Hood Meadows");
+      marker_34._popup.options.maxWidth = 300;
+      map.addLayer(marker_34)
+      
+      var marker_35_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_35 = L.marker([40.692051, 
+							-73.9826203],
+							{'icon':marker_35_icon}
+							);
+      marker_35.bindPopup("Mt. Hood Meadows");
+      marker_35._popup.options.maxWidth = 300;
+      map.addLayer(marker_35)
+      
+      var marker_36_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_36 = L.marker([40.688254, 
+							-73.979286],
+							{'icon':marker_36_icon}
+							);
+      marker_36.bindPopup("Mt. Hood Meadows");
+      marker_36._popup.options.maxWidth = 300;
+      map.addLayer(marker_36)
+      
+      var marker_37_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_37 = L.marker([40.687872, 
+							-73.978347],
+							{'icon':marker_37_icon}
+							);
+      marker_37.bindPopup("Mt. Hood Meadows");
+      marker_37._popup.options.maxWidth = 300;
+      map.addLayer(marker_37)
+      
+      var marker_38_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_38 = L.marker([40.687535, 
+							-73.977498],
+							{'icon':marker_38_icon}
+							);
+      marker_38.bindPopup("Mt. Hood Meadows");
+      marker_38._popup.options.maxWidth = 300;
+      map.addLayer(marker_38)
+      
+      var marker_39_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_39 = L.marker([40.687184, 
+							-73.976592],
+							{'icon':marker_39_icon}
+							);
+      marker_39.bindPopup("Mt. Hood Meadows");
+      marker_39._popup.options.maxWidth = 300;
+      map.addLayer(marker_39)
+      
+      var marker_40_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_40 = L.marker([40.687025, 
+							-73.976206],
+							{'icon':marker_40_icon}
+							);
+      marker_40.bindPopup("Mt. Hood Meadows");
+      marker_40._popup.options.maxWidth = 300;
+      map.addLayer(marker_40)
+      
+      var marker_41_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_41 = L.marker([40.686757, 
+							-73.97552],
+							{'icon':marker_41_icon}
+							);
+      marker_41.bindPopup("Mt. Hood Meadows");
+      marker_41._popup.options.maxWidth = 300;
+      map.addLayer(marker_41)
+      
+      var marker_42_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_42 = L.marker([40.686309, 
+							-73.97444],
+							{'icon':marker_42_icon}
+							);
+      marker_42.bindPopup("Mt. Hood Meadows");
+      marker_42._popup.options.maxWidth = 300;
+      map.addLayer(marker_42)
+      
+      var marker_43_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_43 = L.marker([40.685885, 
+							-73.973374],
+							{'icon':marker_43_icon}
+							);
+      marker_43.bindPopup("Mt. Hood Meadows");
+      marker_43._popup.options.maxWidth = 300;
+      map.addLayer(marker_43)
+      
+      var marker_44_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_44 = L.marker([40.690143, 
+							-73.98407],
+							{'icon':marker_44_icon}
+							);
+      marker_44.bindPopup("Mt. Hood Meadows");
+      marker_44._popup.options.maxWidth = 300;
+      map.addLayer(marker_44)
+      
+      var marker_45_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_45 = L.marker([40.693172, 
+							-73.970859],
+							{'icon':marker_45_icon}
+							);
+      marker_45.bindPopup("Mt. Hood Meadows");
+      marker_45._popup.options.maxWidth = 300;
+      map.addLayer(marker_45)
+      
+      var marker_46_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_46 = L.marker([40.6881637, 
+							-73.98395],
+							{'icon':marker_46_icon}
+							);
+      marker_46.bindPopup("Mt. Hood Meadows");
+      marker_46._popup.options.maxWidth = 300;
+      map.addLayer(marker_46)
+      
+      var marker_47_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_47 = L.marker([40.687564, 
+							-73.9844],
+							{'icon':marker_47_icon}
+							);
+      marker_47.bindPopup("Mt. Hood Meadows");
+      marker_47._popup.options.maxWidth = 300;
+      map.addLayer(marker_47)
+      
+      var marker_48_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_48 = L.marker([40.68693, 
+							-73.984829],
+							{'icon':marker_48_icon}
+							);
+      marker_48.bindPopup("Mt. Hood Meadows");
+      marker_48._popup.options.maxWidth = 300;
+      map.addLayer(marker_48)
+      
+      var marker_49_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_49 = L.marker([40.6889411, 
+							-73.9810499],
+							{'icon':marker_49_icon}
+							);
+      marker_49.bindPopup("Mt. Hood Meadows");
+      marker_49._popup.options.maxWidth = 300;
+      map.addLayer(marker_49)
+      
+      var marker_50_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_50 = L.marker([40.691602, 
+							-73.970549],
+							{'icon':marker_50_icon}
+							);
+      marker_50.bindPopup("Mt. Hood Meadows");
+      marker_50._popup.options.maxWidth = 300;
+      map.addLayer(marker_50)
+      
+      var marker_51_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_51 = L.marker([40.689506, 
+							-73.970131],
+							{'icon':marker_51_icon}
+							);
+      marker_51.bindPopup("Mt. Hood Meadows");
+      marker_51._popup.options.maxWidth = 300;
+      map.addLayer(marker_51)
+      
+      var marker_52_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_52 = L.marker([40.687752, 
+							-73.969783],
+							{'icon':marker_52_icon}
+							);
+      marker_52.bindPopup("Mt. Hood Meadows");
+      marker_52._popup.options.maxWidth = 300;
+      map.addLayer(marker_52)
+      
+      var marker_53_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_53 = L.marker([40.686288, 
+							-73.96949],
+							{'icon':marker_53_icon}
+							);
+      marker_53.bindPopup("Mt. Hood Meadows");
+      marker_53._popup.options.maxWidth = 300;
+      map.addLayer(marker_53)
+      
+      var marker_54_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_54 = L.marker([40.686713, 
+							-73.979057],
+							{'icon':marker_54_icon}
+							);
+      marker_54.bindPopup("Mt. Hood Meadows");
+      marker_54._popup.options.maxWidth = 300;
+      map.addLayer(marker_54)
+      
+      var marker_55_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_55 = L.marker([40.6862776, 
+							-73.979089],
+							{'icon':marker_55_icon}
+							);
+      marker_55.bindPopup("Mt. Hood Meadows");
+      marker_55._popup.options.maxWidth = 300;
+      map.addLayer(marker_55)
+      
+      var marker_56_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_56 = L.marker([40.6933181, 
+							-73.9742268],
+							{'icon':marker_56_icon}
+							);
+      marker_56.bindPopup("Mt. Hood Meadows");
+      marker_56._popup.options.maxWidth = 300;
+      map.addLayer(marker_56)
+      
+      var marker_57_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_57 = L.marker([40.693135, 
+							-73.969831],
+							{'icon':marker_57_icon}
+							);
+      marker_57.bindPopup("Mt. Hood Meadows");
+      marker_57._popup.options.maxWidth = 300;
+      map.addLayer(marker_57)
+      
+      var marker_58_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_58 = L.marker([40.691564, 
+							-73.969521],
+							{'icon':marker_58_icon}
+							);
+      marker_58.bindPopup("Mt. Hood Meadows");
+      marker_58._popup.options.maxWidth = 300;
+      map.addLayer(marker_58)
+      
+      var marker_59_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_59 = L.marker([40.689468, 
+							-73.969103],
+							{'icon':marker_59_icon}
+							);
+      marker_59.bindPopup("Mt. Hood Meadows");
+      marker_59._popup.options.maxWidth = 300;
+      map.addLayer(marker_59)
+      
+      var marker_60_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_60 = L.marker([40.687868, 
+							-73.968785],
+							{'icon':marker_60_icon}
+							);
+      marker_60.bindPopup("Mt. Hood Meadows");
+      marker_60._popup.options.maxWidth = 300;
+      map.addLayer(marker_60)
+      
+      var marker_61_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_61 = L.marker([40.686403, 
+							-73.968491],
+							{'icon':marker_61_icon}
+							);
+      marker_61.bindPopup("Mt. Hood Meadows");
+      marker_61._popup.options.maxWidth = 300;
+      map.addLayer(marker_61)
+      
+      var marker_62_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_62 = L.marker([40.689582, 
+							-73.972136],
+							{'icon':marker_62_icon}
+							);
+      marker_62.bindPopup("Mt. Hood Meadows");
+      marker_62._popup.options.maxWidth = 300;
+      map.addLayer(marker_62)
+      
+      var marker_63_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_63 = L.marker([40.6935217, 
+							-73.972919],
+							{'icon':marker_63_icon}
+							);
+      marker_63.bindPopup("Mt. Hood Meadows");
+      marker_63._popup.options.maxWidth = 300;
+      map.addLayer(marker_63)
+      
+      var marker_64_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_64 = L.marker([40.687528, 
+							-73.971727],
+							{'icon':marker_64_icon}
+							);
+      marker_64.bindPopup("Mt. Hood Meadows");
+      marker_64._popup.options.maxWidth = 300;
+      map.addLayer(marker_64)
+      
+      var marker_65_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_65 = L.marker([40.686064, 
+							-73.971433],
+							{'icon':marker_65_icon}
+							);
+      marker_65.bindPopup("Mt. Hood Meadows");
+      marker_65._popup.options.maxWidth = 300;
+      map.addLayer(marker_65)
+      
+      var marker_66_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_66 = L.marker([40.691921, 
+							-73.978947],
+							{'icon':marker_66_icon}
+							);
+      marker_66.bindPopup("Mt. Hood Meadows");
+      marker_66._popup.options.maxWidth = 300;
+      map.addLayer(marker_66)
+      
+      var marker_67_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_67 = L.marker([40.689831, 
+							-73.978624],
+							{'icon':marker_67_icon}
+							);
+      marker_67.bindPopup("Mt. Hood Meadows");
+      marker_67._popup.options.maxWidth = 300;
+      map.addLayer(marker_67)
+      
+      var marker_68_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_68 = L.marker([40.68682, 
+							-73.978208],
+							{'icon':marker_68_icon}
+							);
+      marker_68.bindPopup("Mt. Hood Meadows");
+      marker_68._popup.options.maxWidth = 300;
+      map.addLayer(marker_68)
+      
+      var marker_69_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_69 = L.marker([40.689806, 
+							-73.977939],
+							{'icon':marker_69_icon}
+							);
+      marker_69.bindPopup("Mt. Hood Meadows");
+      marker_69._popup.options.maxWidth = 300;
+      map.addLayer(marker_69)
+      
+      var marker_70_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_70 = L.marker([40.686919, 
+							-73.977361],
+							{'icon':marker_70_icon}
+							);
+      marker_70.bindPopup("Mt. Hood Meadows");
+      marker_70._popup.options.maxWidth = 300;
+      map.addLayer(marker_70)
+      
+      var marker_71_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_71 = L.marker([40.6935047, 
+							-73.9791839],
+							{'icon':marker_71_icon}
+							);
+      marker_71.bindPopup("Mt. Hood Meadows");
+      marker_71._popup.options.maxWidth = 300;
+      map.addLayer(marker_71)
+      
+      var marker_72_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_72 = L.marker([40.691756, 
+							-73.966566],
+							{'icon':marker_72_icon}
+							);
+      marker_72.bindPopup("Mt. Hood Meadows");
+      marker_72._popup.options.maxWidth = 300;
+      map.addLayer(marker_72)
+      
+      var marker_73_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_73 = L.marker([40.689673, 
+							-73.966135],
+							{'icon':marker_73_icon}
+							);
+      marker_73.bindPopup("Mt. Hood Meadows");
+      marker_73._popup.options.maxWidth = 300;
+      map.addLayer(marker_73)
+      
+      var marker_74_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_74 = L.marker([40.688209, 
+							-73.965822],
+							{'icon':marker_74_icon}
+							);
+      marker_74.bindPopup("Mt. Hood Meadows");
+      marker_74._popup.options.maxWidth = 300;
+      map.addLayer(marker_74)
+      
+      var marker_75_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_75 = L.marker([40.686744, 
+							-73.965525],
+							{'icon':marker_75_icon}
+							);
+      marker_75.bindPopup("Mt. Hood Meadows");
+      marker_75._popup.options.maxWidth = 300;
+      map.addLayer(marker_75)
+      
+      var marker_76_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_76 = L.marker([40.688896, 
+							-73.982416],
+							{'icon':marker_76_icon}
+							);
+      marker_76.bindPopup("Mt. Hood Meadows");
+      marker_76._popup.options.maxWidth = 300;
+      map.addLayer(marker_76)
+      
+      var marker_77_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_77 = L.marker([40.693663, 
+							-73.977871],
+							{'icon':marker_77_icon}
+							);
+      marker_77.bindPopup("Mt. Hood Meadows");
+      marker_77._popup.options.maxWidth = 300;
+      map.addLayer(marker_77)
+      
+      var marker_78_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_78 = L.marker([40.69364, 
+							-73.977563],
+							{'icon':marker_78_icon}
+							);
+      marker_78.bindPopup("Mt. Hood Meadows");
+      marker_78._popup.options.maxWidth = 300;
+      map.addLayer(marker_78)
+      
+      var marker_79_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_79 = L.marker([40.693807, 
+							-73.976446],
+							{'icon':marker_79_icon}
+							);
+      marker_79.bindPopup("Mt. Hood Meadows");
+      marker_79._popup.options.maxWidth = 300;
+      map.addLayer(marker_79)
+      
+      var marker_80_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_80 = L.marker([40.693855, 
+							-73.97594],
+							{'icon':marker_80_icon}
+							);
+      marker_80.bindPopup("Mt. Hood Meadows");
+      marker_80._popup.options.maxWidth = 300;
+      map.addLayer(marker_80)
+      
+      var marker_81_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_81 = L.marker([40.69323, 
+							-73.967844],
+							{'icon':marker_81_icon}
+							);
+      marker_81.bindPopup("Mt. Hood Meadows");
+      marker_81._popup.options.maxWidth = 300;
+      map.addLayer(marker_81)
+      
+      var marker_82_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_82 = L.marker([40.691643, 
+							-73.967531],
+							{'icon':marker_82_icon}
+							);
+      marker_82.bindPopup("Mt. Hood Meadows");
+      marker_82._popup.options.maxWidth = 300;
+      map.addLayer(marker_82)
+      
+      var marker_83_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_83 = L.marker([40.689561, 
+							-73.967115],
+							{'icon':marker_83_icon}
+							);
+      marker_83.bindPopup("Mt. Hood Meadows");
+      marker_83._popup.options.maxWidth = 300;
+      map.addLayer(marker_83)
+      
+      var marker_84_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_84 = L.marker([40.688088, 
+							-73.966821],
+							{'icon':marker_84_icon}
+							);
+      marker_84.bindPopup("Mt. Hood Meadows");
+      marker_84._popup.options.maxWidth = 300;
+      map.addLayer(marker_84)
+      
+      var marker_85_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_85 = L.marker([40.686627, 
+							-73.96653],
+							{'icon':marker_85_icon}
+							);
+      marker_85.bindPopup("Mt. Hood Meadows");
+      marker_85._popup.options.maxWidth = 300;
+      map.addLayer(marker_85)
+      
+      var marker_86_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_86 = L.marker([40.694165, 
+							-73.980942],
+							{'icon':marker_86_icon}
+							);
+      marker_86.bindPopup("Mt. Hood Meadows");
+      marker_86._popup.options.maxWidth = 300;
+      map.addLayer(marker_86)
+      
+      var marker_87_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_87 = L.marker([40.6935397, 
+							-73.980112],
+							{'icon':marker_87_icon}
+							);
+      marker_87.bindPopup("Mt. Hood Meadows");
+      marker_87._popup.options.maxWidth = 300;
+      map.addLayer(marker_87)
+      
+      var marker_88_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_88 = L.marker([40.69321, 
+							-73.971872],
+							{'icon':marker_88_icon}
+							);
+      marker_88.bindPopup("Mt. Hood Meadows");
+      marker_88._popup.options.maxWidth = 300;
+      map.addLayer(marker_88)
+      
+      var marker_89_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_89 = L.marker([40.69164, 
+							-73.97156],
+							{'icon':marker_89_icon}
+							);
+      marker_89.bindPopup("Mt. Hood Meadows");
+      marker_89._popup.options.maxWidth = 300;
+      map.addLayer(marker_89)
+      
+      var marker_90_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_90 = L.marker([40.689544, 
+							-73.971142],
+							{'icon':marker_90_icon}
+							);
+      marker_90.bindPopup("Mt. Hood Meadows");
+      marker_90._popup.options.maxWidth = 300;
+      map.addLayer(marker_90)
+      
+      var marker_91_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_91 = L.marker([40.687638, 
+							-73.970764],
+							{'icon':marker_91_icon}
+							);
+      marker_91.bindPopup("Mt. Hood Meadows");
+      marker_91._popup.options.maxWidth = 300;
+      map.addLayer(marker_91)
+      
+      var marker_92_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_92 = L.marker([40.686174, 
+							-73.97047],
+							{'icon':marker_92_icon}
+							);
+      marker_92.bindPopup("Mt. Hood Meadows");
+      marker_92._popup.options.maxWidth = 300;
+      map.addLayer(marker_92)
+      
+      var marker_93_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_93 = L.marker([40.689773, 
+							-73.977098],
+							{'icon':marker_93_icon}
+							);
+      marker_93.bindPopup("Mt. Hood Meadows");
+      marker_93._popup.options.maxWidth = 300;
+      map.addLayer(marker_93)
+      
+      var marker_94_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_94 = L.marker([40.686994, 
+							-73.976545],
+							{'icon':marker_94_icon}
+							);
+      marker_94.bindPopup("Mt. Hood Meadows");
+      marker_94._popup.options.maxWidth = 300;
+      map.addLayer(marker_94)
+      
+      var marker_95_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_95 = L.marker([40.688761, 
+							-73.980843],
+							{'icon':marker_95_icon}
+							);
+      marker_95.bindPopup("Mt. Hood Meadows");
+      marker_95._popup.options.maxWidth = 300;
+      map.addLayer(marker_95)
+      
+      var marker_96_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_96 = L.marker([40.691707, 
+							-73.97354],
+							{'icon':marker_96_icon}
+							);
+      marker_96.bindPopup("Mt. Hood Meadows");
+      marker_96._popup.options.maxWidth = 300;
+      map.addLayer(marker_96)
+      
+      var marker_97_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_97 = L.marker([40.691545, 
+							-73.968493],
+							{'icon':marker_97_icon}
+							);
+      marker_97.bindPopup("Mt. Hood Meadows");
+      marker_97._popup.options.maxWidth = 300;
+      map.addLayer(marker_97)
+      
+      var marker_98_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_98 = L.marker([40.6934517, 
+							-73.9778202],
+							{'icon':marker_98_icon}
+							);
+      marker_98.bindPopup("Mt. Hood Meadows");
+      marker_98._popup.options.maxWidth = 300;
+      map.addLayer(marker_98)
+      
+      var marker_99_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_99 = L.marker([40.6933478, 
+							-73.9749985],
+							{'icon':marker_99_icon}
+							);
+      marker_99.bindPopup("Mt. Hood Meadows");
+      marker_99._popup.options.maxWidth = 300;
+      map.addLayer(marker_99)
+      
+      var marker_100_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_100 = L.marker([40.694256, 
+							-73.977986],
+							{'icon':marker_100_icon}
+							);
+      marker_100.bindPopup("Mt. Hood Meadows");
+      marker_100._popup.options.maxWidth = 300;
+      map.addLayer(marker_100)
+      
+      var marker_101_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_101 = L.marker([40.692121, 
+							-73.984341],
+							{'icon':marker_101_icon}
+							);
+      marker_101.bindPopup("Mt. Hood Meadows");
+      marker_101._popup.options.maxWidth = 300;
+      map.addLayer(marker_101)
+      
+      var marker_102_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_102 = L.marker([40.6920319, 
+							-73.9817613],
+							{'icon':marker_102_icon}
+							);
+      marker_102.bindPopup("Mt. Hood Meadows");
+      marker_102._popup.options.maxWidth = 300;
+      map.addLayer(marker_102)
+      
+      var marker_103_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_103 = L.marker([40.686086, 
+							-73.982661],
+							{'icon':marker_103_icon}
+							);
+      marker_103.bindPopup("Mt. Hood Meadows");
+      marker_103._popup.options.maxWidth = 300;
+      map.addLayer(marker_103)
+      
+      var marker_104_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_104 = L.marker([40.693114, 
+							-73.9688092],
+							{'icon':marker_104_icon}
+							);
+      marker_104.bindPopup("Mt. Hood Meadows");
+      marker_104._popup.options.maxWidth = 300;
+      map.addLayer(marker_104)
+      
+      var marker_105_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_105 = L.marker([40.689452, 
+							-73.968078],
+							{'icon':marker_105_icon}
+							);
+      marker_105.bindPopup("Mt. Hood Meadows");
+      marker_105._popup.options.maxWidth = 300;
+      map.addLayer(marker_105)
+      
+      var marker_106_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_106 = L.marker([40.687984, 
+							-73.967788],
+							{'icon':marker_106_icon}
+							);
+      marker_106.bindPopup("Mt. Hood Meadows");
+      marker_106._popup.options.maxWidth = 300;
+      map.addLayer(marker_106)
+      
+      var marker_107_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_107 = L.marker([40.686518, 
+							-73.967493],
+							{'icon':marker_107_icon}
+							);
+      marker_107.bindPopup("Mt. Hood Meadows");
+      marker_107._popup.options.maxWidth = 300;
+      map.addLayer(marker_107)
+      
+      var marker_108_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_108 = L.marker([40.6859576, 
+							-73.9723937],
+							{'icon':marker_108_icon}
+							);
+      marker_108.bindPopup("Mt. Hood Meadows");
+      marker_108._popup.options.maxWidth = 300;
+      map.addLayer(marker_108)
+      
+      var marker_109_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_109 = L.marker([40.689228, 
+							-73.984696],
+							{'icon':marker_109_icon}
+							);
+      marker_109.bindPopup("Mt. Hood Meadows");
+      marker_109._popup.options.maxWidth = 300;
+      map.addLayer(marker_109)
+      
+      var marker_110_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_110 = L.marker([40.6916618, 
+							-73.9817721],
+							{'icon':marker_110_icon}
+							);
+      marker_110.bindPopup("Mt. Hood Meadows");
+      marker_110._popup.options.maxWidth = 300;
+      map.addLayer(marker_110)
+      
+      var marker_111_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_111 = L.marker([40.689663, 
+							-73.974109],
+							{'icon':marker_111_icon}
+							);
+      marker_111.bindPopup("Mt. Hood Meadows");
+      marker_111._popup.options.maxWidth = 300;
+      map.addLayer(marker_111)
+      
+      var marker_112_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_112 = L.marker([40.687303, 
+							-73.973648],
+							{'icon':marker_112_icon}
+							);
+      marker_112.bindPopup("Mt. Hood Meadows");
+      marker_112._popup.options.maxWidth = 300;
+      map.addLayer(marker_112)
+      
+      var marker_113_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_113 = L.marker([40.6933007, 
+							-73.973855],
+							{'icon':marker_113_icon}
+							);
+      marker_113.bindPopup("Mt. Hood Meadows");
+      marker_113._popup.options.maxWidth = 300;
+      map.addLayer(marker_113)
+      
+      var marker_114_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_114 = L.marker([40.687415, 
+							-73.972687],
+							{'icon':marker_114_icon}
+							);
+      marker_114.bindPopup("Mt. Hood Meadows");
+      marker_114._popup.options.maxWidth = 300;
+      map.addLayer(marker_114)
+      
+      var marker_115_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_115 = L.marker([40.694204, 
+							-73.981911],
+							{'icon':marker_115_icon}
+							);
+      marker_115.bindPopup("Mt. Hood Meadows");
+      marker_115._popup.options.maxWidth = 300;
+      map.addLayer(marker_115)
+      
+      var marker_116_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_116 = L.marker([40.693716, 
+							-73.985199],
+							{'icon':marker_116_icon}
+							);
+      marker_116.bindPopup("Mt. Hood Meadows");
+      marker_116._popup.options.maxWidth = 300;
+      map.addLayer(marker_116)
+      
+      var marker_117_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_117 = L.marker([40.686721, 
+							-73.982232],
+							{'icon':marker_117_icon}
+							);
+      marker_117.bindPopup("Mt. Hood Meadows");
+      marker_117._popup.options.maxWidth = 300;
+      map.addLayer(marker_117)
+      
+      var marker_118_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_118 = L.marker([40.6935405, 
+							-73.9730352],
+							{'icon':marker_118_icon}
+							);
+      marker_118.bindPopup("Mt. Hood Meadows");
+      marker_118._popup.options.maxWidth = 300;
+      map.addLayer(marker_118)
+      
+      var marker_119_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_119 = L.marker([40.6936046, 
+							-73.9842654],
+							{'icon':marker_119_icon}
+							);
+      marker_119.bindPopup("Mt. Hood Meadows");
+      marker_119._popup.options.maxWidth = 300;
+      map.addLayer(marker_119)
+      
+      var marker_120_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_120 = L.marker([40.69358, 
+							-73.980967],
+							{'icon':marker_120_icon}
+							);
+      marker_120.bindPopup("Mt. Hood Meadows");
+      marker_120._popup.options.maxWidth = 300;
+      map.addLayer(marker_120)
+      
+      var marker_121_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_121 = L.marker([40.6932768, 
+							-73.9733142],
+							{'icon':marker_121_icon}
+							);
+      marker_121.bindPopup("Mt. Hood Meadows");
+      marker_121._popup.options.maxWidth = 300;
+      map.addLayer(marker_121)
+      
+      var marker_122_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_122 = L.marker([40.689737, 
+							-73.976102],
+							{'icon':marker_122_icon}
+							);
+      marker_122.bindPopup("Mt. Hood Meadows");
+      marker_122._popup.options.maxWidth = 300;
+      map.addLayer(marker_122)
+      
+      var marker_123_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_123 = L.marker([40.689698, 
+							-73.975106],
+							{'icon':marker_123_icon}
+							);
+      marker_123.bindPopup("Mt. Hood Meadows");
+      marker_123._popup.options.maxWidth = 300;
+      map.addLayer(marker_123)
+      
+      var marker_124_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_124 = L.marker([40.688459, 
+							-73.982715],
+							{'icon':marker_124_icon}
+							);
+      marker_124.bindPopup("Mt. Hood Meadows");
+      marker_124._popup.options.maxWidth = 300;
+      map.addLayer(marker_124)
+      
+      var marker_125_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_125 = L.marker([40.687945, 
+							-73.9814],
+							{'icon':marker_125_icon}
+							);
+      marker_125.bindPopup("Mt. Hood Meadows");
+      marker_125._popup.options.maxWidth = 300;
+      map.addLayer(marker_125)
+      
+      var marker_126_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_126 = L.marker([40.687086, 
+							-73.97559],
+							{'icon':marker_126_icon}
+							);
+      marker_126.bindPopup("Mt. Hood Meadows");
+      marker_126._popup.options.maxWidth = 300;
+      map.addLayer(marker_126)
+      
+      var marker_127_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_127 = L.marker([40.687191, 
+							-73.974616],
+							{'icon':marker_127_icon}
+							);
+      marker_127.bindPopup("Mt. Hood Meadows");
+      marker_127._popup.options.maxWidth = 300;
+      map.addLayer(marker_127)
+      
+      var marker_128_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_128 = L.marker([40.6920279, 
+							-73.9815199],
+							{'icon':marker_128_icon}
+							);
+      marker_128.bindPopup("Mt. Hood Meadows");
+      marker_128._popup.options.maxWidth = 300;
+      map.addLayer(marker_128)
+      
+      var marker_129_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_129 = L.marker([40.6920899, 
+							-73.9833969],
+							{'icon':marker_129_icon}
+							);
+      marker_129.bindPopup("Mt. Hood Meadows");
+      marker_129._popup.options.maxWidth = 300;
+      map.addLayer(marker_129)
+      
+      var marker_130_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_130 = L.marker([40.6866757, 
+							-73.9793577],
+							{'icon':marker_130_icon}
+							);
+      marker_130.bindPopup("Mt. Hood Meadows");
+      marker_130._popup.options.maxWidth = 300;
+      map.addLayer(marker_130)
+      
+      var marker_131_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_131 = L.marker([40.6852017, 
+							-73.9782702],
+							{'icon':marker_131_icon}
+							);
+      marker_131.bindPopup("Mt. Hood Meadows");
+      marker_131._popup.options.maxWidth = 300;
+      map.addLayer(marker_131)
+      
+      var marker_132_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_132 = L.marker([40.687345, 
+							-73.979841],
+							{'icon':marker_132_icon}
+							);
+      marker_132.bindPopup("Mt. Hood Meadows");
+      marker_132._popup.options.maxWidth = 300;
+      map.addLayer(marker_132)
+      
+      var marker_133_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_133 = L.marker([40.6869891, 
+							-73.9795756],
+							{'icon':marker_133_icon}
+							);
+      marker_133.bindPopup("Mt. Hood Meadows");
+      marker_133._popup.options.maxWidth = 300;
+      map.addLayer(marker_133)
+      
+      var marker_134_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_134 = L.marker([40.6887792, 
+							-73.9835545],
+							{'icon':marker_134_icon}
+							);
+      marker_134.bindPopup("Mt. Hood Meadows");
+      marker_134._popup.options.maxWidth = 300;
+      map.addLayer(marker_134)
+      
+      var marker_135_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_135 = L.marker([40.690292, 
+							-73.984433],
+							{'icon':marker_135_icon}
+							);
+      marker_135.bindPopup("Mt. Hood Meadows");
+      marker_135._popup.options.maxWidth = 300;
+      map.addLayer(marker_135)
+      
+      var marker_136_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_136 = L.marker([40.690561, 
+							-73.985105],
+							{'icon':marker_136_icon}
+							);
+      marker_136.bindPopup("Mt. Hood Meadows");
+      marker_136._popup.options.maxWidth = 300;
+      map.addLayer(marker_136)
+      
+      var marker_137_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_137 = L.marker([40.6938534, 
+							-73.979342],
+							{'icon':marker_137_icon}
+							);
+      marker_137.bindPopup("Mt. Hood Meadows");
+      marker_137._popup.options.maxWidth = 300;
+      map.addLayer(marker_137)
+      
+      var marker_138_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_138 = L.marker([40.6934743, 
+							-73.9783795],
+							{'icon':marker_138_icon}
+							);
+      marker_138.bindPopup("Mt. Hood Meadows");
+      marker_138._popup.options.maxWidth = 300;
+      map.addLayer(marker_138)
+      
+      var marker_139_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_139 = L.marker([40.6942195, 
+							-73.9790953],
+							{'icon':marker_139_icon}
+							);
+      marker_139.bindPopup("Mt. Hood Meadows");
+      marker_139._popup.options.maxWidth = 300;
+      map.addLayer(marker_139)
+      
+      var marker_140_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_140 = L.marker([40.68578, 
+							-73.973134],
+							{'icon':marker_140_icon}
+							);
+      marker_140.bindPopup("Mt. Hood Meadows");
+      marker_140._popup.options.maxWidth = 300;
+      map.addLayer(marker_140)
+      
+      var marker_141_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_141 = L.marker([40.688638, 
+							-73.980258],
+							{'icon':marker_141_icon}
+							);
+      marker_141.bindPopup("Mt. Hood Meadows");
+      marker_141._popup.options.maxWidth = 300;
+      map.addLayer(marker_141)
+      
+      var marker_142_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_142 = L.marker([40.689863, 
+							-73.97951],
+							{'icon':marker_142_icon}
+							);
+      marker_142.bindPopup("Mt. Hood Meadows");
+      marker_142._popup.options.maxWidth = 300;
+      map.addLayer(marker_142)
+      
+      var marker_143_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_143 = L.marker([40.6899975, 
+							-73.9750673],
+							{'icon':marker_143_icon}
+							);
+      marker_143.bindPopup("Mt. Hood Meadows");
+      marker_143._popup.options.maxWidth = 300;
+      map.addLayer(marker_143)
+      
+      var marker_144_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_144 = L.marker([40.6899483, 
+							-73.9736441],
+							{'icon':marker_144_icon}
+							);
+      marker_144.bindPopup("Mt. Hood Meadows");
+      marker_144._popup.options.maxWidth = 300;
+      map.addLayer(marker_144)
+      
+      var marker_145_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_145 = L.marker([40.6918084, 
+							-73.9744854],
+							{'icon':marker_145_icon}
+							);
+      marker_145.bindPopup("Mt. Hood Meadows");
+      marker_145._popup.options.maxWidth = 300;
+      map.addLayer(marker_145)
+      
+      var marker_146_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_146 = L.marker([40.6911358, 
+							-73.9745235],
+							{'icon':marker_146_icon}
+							);
+      marker_146.bindPopup("Mt. Hood Meadows");
+      marker_146._popup.options.maxWidth = 300;
+      map.addLayer(marker_146)
+      
+      var marker_147_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_147 = L.marker([40.6918872, 
+							-73.9743168],
+							{'icon':marker_147_icon}
+							);
+      marker_147.bindPopup("Mt. Hood Meadows");
+      marker_147._popup.options.maxWidth = 300;
+      map.addLayer(marker_147)
+      
+      var marker_148_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_148 = L.marker([40.6934249, 
+							-73.977146],
+							{'icon':marker_148_icon}
+							);
+      marker_148.bindPopup("Mt. Hood Meadows");
+      marker_148._popup.options.maxWidth = 300;
+      map.addLayer(marker_148)
+      
+      var marker_149_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_149 = L.marker([40.6908163, 
+							-73.9751916],
+							{'icon':marker_149_icon}
+							);
+      marker_149.bindPopup("Mt. Hood Meadows");
+      marker_149._popup.options.maxWidth = 300;
+      map.addLayer(marker_149)
+      
+      var marker_150_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_150 = L.marker([40.6926839, 
+							-73.97677],
+							{'icon':marker_150_icon}
+							);
+      marker_150.bindPopup("Mt. Hood Meadows");
+      marker_150._popup.options.maxWidth = 300;
+      map.addLayer(marker_150)
+      
+      var marker_151_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_151 = L.marker([40.6913087, 
+							-73.9820625],
+							{'icon':marker_151_icon}
+							);
+      marker_151.bindPopup("Mt. Hood Meadows");
+      marker_151._popup.options.maxWidth = 300;
+      map.addLayer(marker_151)
+      
+      var marker_152_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_152 = L.marker([40.6899256, 
+							-73.9813796],
+							{'icon':marker_152_icon}
+							);
+      marker_152.bindPopup("Mt. Hood Meadows");
+      marker_152._popup.options.maxWidth = 300;
+      map.addLayer(marker_152)
+      
+      var marker_153_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_153 = L.marker([40.6938711, 
+							-73.9833347],
+							{'icon':marker_153_icon}
+							);
+      marker_153.bindPopup("Mt. Hood Meadows");
+      marker_153._popup.options.maxWidth = 300;
+      map.addLayer(marker_153)
+      
+      var marker_154_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_154 = L.marker([40.6936647, 
+							-73.9832254],
+							{'icon':marker_154_icon}
+							);
+      marker_154.bindPopup("Mt. Hood Meadows");
+      marker_154._popup.options.maxWidth = 300;
+      map.addLayer(marker_154)
+      
+      var marker_155_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_155 = L.marker([40.6920468, 
+							-73.9824338],
+							{'icon':marker_155_icon}
+							);
+      marker_155.bindPopup("Mt. Hood Meadows");
+      marker_155._popup.options.maxWidth = 300;
+      map.addLayer(marker_155)
+      
+      var marker_156_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_156 = L.marker([40.688872, 
+							-73.9808694],
+							{'icon':marker_156_icon}
+							);
+      marker_156.bindPopup("Mt. Hood Meadows");
+      marker_156._popup.options.maxWidth = 300;
+      map.addLayer(marker_156)
+      
+      var marker_157_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_157 = L.marker([40.6919128, 
+							-73.9815907],
+							{'icon':marker_157_icon}
+							);
+      marker_157.bindPopup("Mt. Hood Meadows");
+      marker_157._popup.options.maxWidth = 300;
+      map.addLayer(marker_157)
+      
+      var marker_158_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_158 = L.marker([40.6911639, 
+							-73.9821763],
+							{'icon':marker_158_icon}
+							);
+      marker_158.bindPopup("Mt. Hood Meadows");
+      marker_158._popup.options.maxWidth = 300;
+      map.addLayer(marker_158)
+      
+      var marker_159_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_159 = L.marker([40.6899292, 
+							-73.9815404],
+							{'icon':marker_159_icon}
+							);
+      marker_159.bindPopup("Mt. Hood Meadows");
+      marker_159._popup.options.maxWidth = 300;
+      map.addLayer(marker_159)
+      
+      var marker_160_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_160 = L.marker([40.6936743, 
+							-73.9834021],
+							{'icon':marker_160_icon}
+							);
+      marker_160.bindPopup("Mt. Hood Meadows");
+      marker_160._popup.options.maxWidth = 300;
+      map.addLayer(marker_160)
+      
+      var marker_161_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_161 = L.marker([40.6928322, 
+							-73.9830171],
+							{'icon':marker_161_icon}
+							);
+      marker_161.bindPopup("Mt. Hood Meadows");
+      marker_161._popup.options.maxWidth = 300;
+      map.addLayer(marker_161)
+      
+      var marker_162_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_162 = L.marker([40.6930026, 
+							-73.9833315],
+							{'icon':marker_162_icon}
+							);
+      marker_162.bindPopup("Mt. Hood Meadows");
+      marker_162._popup.options.maxWidth = 300;
+      map.addLayer(marker_162)
+      
+      var marker_163_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_163 = L.marker([40.6935918, 
+							-73.9835755],
+							{'icon':marker_163_icon}
+							);
+      marker_163.bindPopup("Mt. Hood Meadows");
+      marker_163._popup.options.maxWidth = 300;
+      map.addLayer(marker_163)
+      
+      var marker_164_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_164 = L.marker([40.6899263, 
+							-73.9772947],
+							{'icon':marker_164_icon}
+							);
+      marker_164.bindPopup("Mt. Hood Meadows");
+      marker_164._popup.options.maxWidth = 300;
+      map.addLayer(marker_164)
+      
+      var marker_165_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_165 = L.marker([40.6899384, 
+							-73.9777615],
+							{'icon':marker_165_icon}
+							);
+      marker_165.bindPopup("Mt. Hood Meadows");
+      marker_165._popup.options.maxWidth = 300;
+      map.addLayer(marker_165)
+      
+      var marker_166_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_166 = L.marker([40.6897802, 
+							-73.9772816],
+							{'icon':marker_166_icon}
+							);
+      marker_166.bindPopup("Mt. Hood Meadows");
+      marker_166._popup.options.maxWidth = 300;
+      map.addLayer(marker_166)
+      
+      var marker_167_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_167 = L.marker([40.6899464, 
+							-73.9780698],
+							{'icon':marker_167_icon}
+							);
+      marker_167.bindPopup("Mt. Hood Meadows");
+      marker_167._popup.options.maxWidth = 300;
+      map.addLayer(marker_167)
+      
+      var marker_168_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_168 = L.marker([40.6899614, 
+							-73.9786441],
+							{'icon':marker_168_icon}
+							);
+      marker_168.bindPopup("Mt. Hood Meadows");
+      marker_168._popup.options.maxWidth = 300;
+      map.addLayer(marker_168)
+      
+      var marker_169_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_169 = L.marker([40.6904598, 
+							-73.9746921],
+							{'icon':marker_169_icon}
+							);
+      marker_169.bindPopup("Mt. Hood Meadows");
+      marker_169._popup.options.maxWidth = 300;
+      map.addLayer(marker_169)
+      
+      var marker_170_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_170 = L.marker([40.6900944, 
+							-73.9747461],
+							{'icon':marker_170_icon}
+							);
+      marker_170.bindPopup("Mt. Hood Meadows");
+      marker_170._popup.options.maxWidth = 300;
+      map.addLayer(marker_170)
+      
+      var marker_171_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_171 = L.marker([40.6940732, 
+							-73.9720428],
+							{'icon':marker_171_icon}
+							);
+      marker_171.bindPopup("Mt. Hood Meadows");
+      marker_171._popup.options.maxWidth = 300;
+      map.addLayer(marker_171)
+      
+      var marker_172_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_172 = L.marker([40.6941924, 
+							-73.9710539],
+							{'icon':marker_172_icon}
+							);
+      marker_172.bindPopup("Mt. Hood Meadows");
+      marker_172._popup.options.maxWidth = 300;
+      map.addLayer(marker_172)
+      
+      var marker_173_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_173 = L.marker([40.6918441, 
+							-73.9775098],
+							{'icon':marker_173_icon}
+							);
+      marker_173.bindPopup("Mt. Hood Meadows");
+      marker_173._popup.options.maxWidth = 300;
+      map.addLayer(marker_173)
+      
+      var marker_174_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_174 = L.marker([40.6919489, 
+							-73.9775547],
+							{'icon':marker_174_icon}
+							);
+      marker_174.bindPopup("Mt. Hood Meadows");
+      marker_174._popup.options.maxWidth = 300;
+      map.addLayer(marker_174)
+      
+      var marker_175_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_175 = L.marker([40.6925505, 
+							-73.9763251],
+							{'icon':marker_175_icon}
+							);
+      marker_175.bindPopup("Mt. Hood Meadows");
+      marker_175._popup.options.maxWidth = 300;
+      map.addLayer(marker_175)
+      
+      var marker_176_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_176 = L.marker([40.6929255, 
+							-73.9742738],
+							{'icon':marker_176_icon}
+							);
+      marker_176.bindPopup("Mt. Hood Meadows");
+      marker_176._popup.options.maxWidth = 300;
+      map.addLayer(marker_176)
+      
+      var marker_177_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_177 = L.marker([40.6931315, 
+							-73.977146],
+							{'icon':marker_177_icon}
+							);
+      marker_177.bindPopup("Mt. Hood Meadows");
+      marker_177._popup.options.maxWidth = 300;
+      map.addLayer(marker_177)
+      
+      var marker_178_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_178 = L.marker([40.693215, 
+							-73.9771456],
+							{'icon':marker_178_icon}
+							);
+      marker_178.bindPopup("Mt. Hood Meadows");
+      marker_178._popup.options.maxWidth = 300;
+      map.addLayer(marker_178)
+      
+      var marker_179_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_179 = L.marker([40.6924521, 
+							-73.9764466],
+							{'icon':marker_179_icon}
+							);
+      marker_179.bindPopup("Mt. Hood Meadows");
+      marker_179._popup.options.maxWidth = 300;
+      map.addLayer(marker_179)
+      
+      var marker_180_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_180 = L.marker([40.6922445, 
+							-73.9759001],
+							{'icon':marker_180_icon}
+							);
+      marker_180.bindPopup("Mt. Hood Meadows");
+      marker_180._popup.options.maxWidth = 300;
+      map.addLayer(marker_180)
+      
+      var marker_181_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_181 = L.marker([40.6928921, 
+							-73.9743123],
+							{'icon':marker_181_icon}
+							);
+      marker_181.bindPopup("Mt. Hood Meadows");
+      marker_181._popup.options.maxWidth = 300;
+      map.addLayer(marker_181)
+      
+      var marker_182_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_182 = L.marker([40.6915956, 
+							-73.9774546],
+							{'icon':marker_182_icon}
+							);
+      marker_182.bindPopup("Mt. Hood Meadows");
+      marker_182._popup.options.maxWidth = 300;
+      map.addLayer(marker_182)
+      
+      var marker_183_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_183 = L.marker([40.6918951, 
+							-73.977545],
+							{'icon':marker_183_icon}
+							);
+      marker_183.bindPopup("Mt. Hood Meadows");
+      marker_183._popup.options.maxWidth = 300;
+      map.addLayer(marker_183)
+      
+      var marker_184_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_184 = L.marker([40.6917052, 
+							-73.9774819],
+							{'icon':marker_184_icon}
+							);
+      marker_184.bindPopup("Mt. Hood Meadows");
+      marker_184._popup.options.maxWidth = 300;
+      map.addLayer(marker_184)
+      
+      var marker_185_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_185 = L.marker([40.6930951, 
+							-73.977147],
+							{'icon':marker_185_icon}
+							);
+      marker_185.bindPopup("Mt. Hood Meadows");
+      marker_185._popup.options.maxWidth = 300;
+      map.addLayer(marker_185)
+      
+      var marker_186_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_186 = L.marker([40.6920847, 
+							-73.9759295],
+							{'icon':marker_186_icon}
+							);
+      marker_186.bindPopup("Mt. Hood Meadows");
+      marker_186._popup.options.maxWidth = 300;
+      map.addLayer(marker_186)
+      
+      var marker_187_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_187 = L.marker([40.6921836, 
+							-73.9760661],
+							{'icon':marker_187_icon}
+							);
+      marker_187.bindPopup("Mt. Hood Meadows");
+      marker_187._popup.options.maxWidth = 300;
+      map.addLayer(marker_187)
+      
+      var marker_188_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_188 = L.marker([40.6922666, 
+							-73.9761916],
+							{'icon':marker_188_icon}
+							);
+      marker_188.bindPopup("Mt. Hood Meadows");
+      marker_188._popup.options.maxWidth = 300;
+      map.addLayer(marker_188)
+      
+      var marker_189_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_189 = L.marker([40.6919979, 
+							-73.9758085],
+							{'icon':marker_189_icon}
+							);
+      marker_189.bindPopup("Mt. Hood Meadows");
+      marker_189._popup.options.maxWidth = 300;
+      map.addLayer(marker_189)
+      
+      var marker_190_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_190 = L.marker([40.6923758, 
+							-73.976338],
+							{'icon':marker_190_icon}
+							);
+      marker_190.bindPopup("Mt. Hood Meadows");
+      marker_190._popup.options.maxWidth = 300;
+      map.addLayer(marker_190)
+      
+      var marker_191_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_191 = L.marker([40.6920548, 
+							-73.9761596],
+							{'icon':marker_191_icon}
+							);
+      marker_191.bindPopup("Mt. Hood Meadows");
+      marker_191._popup.options.maxWidth = 300;
+      map.addLayer(marker_191)
+      
+      var marker_192_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_192 = L.marker([40.6900305, 
+							-73.9771099],
+							{'icon':marker_192_icon}
+							);
+      marker_192.bindPopup("Mt. Hood Meadows");
+      marker_192._popup.options.maxWidth = 300;
+      map.addLayer(marker_192)
+      
+      var marker_193_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_193 = L.marker([40.690097, 
+							-73.9771115],
+							{'icon':marker_193_icon}
+							);
+      marker_193.bindPopup("Mt. Hood Meadows");
+      marker_193._popup.options.maxWidth = 300;
+      map.addLayer(marker_193)
+      
+      var marker_194_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_194 = L.marker([40.6929581, 
+							-73.9742343],
+							{'icon':marker_194_icon}
+							);
+      marker_194.bindPopup("Mt. Hood Meadows");
+      marker_194._popup.options.maxWidth = 300;
+      map.addLayer(marker_194)
+      
+      var marker_195_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_195 = L.marker([40.6899893, 
+							-73.9771074],
+							{'icon':marker_195_icon}
+							);
+      marker_195.bindPopup("Mt. Hood Meadows");
+      marker_195._popup.options.maxWidth = 300;
+      map.addLayer(marker_195)
+      
+      var marker_196_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_196 = L.marker([40.6931835, 
+							-73.9743079],
+							{'icon':marker_196_icon}
+							);
+      marker_196.bindPopup("Mt. Hood Meadows");
+      marker_196._popup.options.maxWidth = 300;
+      map.addLayer(marker_196)
+      
+      var marker_197_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_197 = L.marker([40.6897015, 
+							-73.9829511],
+							{'icon':marker_197_icon}
+							);
+      marker_197.bindPopup("Mt. Hood Meadows");
+      marker_197._popup.options.maxWidth = 300;
+      map.addLayer(marker_197)
+      
+      var marker_198_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_198 = L.marker([40.6899755, 
+							-73.9827704],
+							{'icon':marker_198_icon}
+							);
+      marker_198.bindPopup("Mt. Hood Meadows");
+      marker_198._popup.options.maxWidth = 300;
+      map.addLayer(marker_198)
+      
+      var marker_199_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_199 = L.marker([40.6900358, 
+							-73.9835016],
+							{'icon':marker_199_icon}
+							);
+      marker_199.bindPopup("Mt. Hood Meadows");
+      marker_199._popup.options.maxWidth = 300;
+      map.addLayer(marker_199)
+      
+      var marker_200_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_200 = L.marker([40.6913476, 
+							-73.9834359],
+							{'icon':marker_200_icon}
+							);
+      marker_200.bindPopup("Mt. Hood Meadows");
+      marker_200._popup.options.maxWidth = 300;
+      map.addLayer(marker_200)
+      
+      var marker_201_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_201 = L.marker([40.6928791, 
+							-73.9770336],
+							{'icon':marker_201_icon}
+							);
+      marker_201.bindPopup("Mt. Hood Meadows");
+      marker_201._popup.options.maxWidth = 300;
+      map.addLayer(marker_201)
+      
+      var marker_202_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_202 = L.marker([40.6905587, 
+							-73.9826854],
+							{'icon':marker_202_icon}
+							);
+      marker_202.bindPopup("Mt. Hood Meadows");
+      marker_202._popup.options.maxWidth = 300;
+      map.addLayer(marker_202)
+      
+      var marker_203_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_203 = L.marker([40.6900078, 
+							-73.9831088],
+							{'icon':marker_203_icon}
+							);
+      marker_203.bindPopup("Mt. Hood Meadows");
+      marker_203._popup.options.maxWidth = 300;
+      map.addLayer(marker_203)
+      
+      var marker_204_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_204 = L.marker([40.6874445, 
+							-73.9800994],
+							{'icon':marker_204_icon}
+							);
+      marker_204.bindPopup("Mt. Hood Meadows");
+      marker_204._popup.options.maxWidth = 300;
+      map.addLayer(marker_204)
+      
+      var marker_205_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_205 = L.marker([40.6875157, 
+							-73.9799782],
+							{'icon':marker_205_icon}
+							);
+      marker_205.bindPopup("Mt. Hood Meadows");
+      marker_205._popup.options.maxWidth = 300;
+      map.addLayer(marker_205)
+      
+      var marker_206_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_206 = L.marker([40.6946853, 
+							-73.973245],
+							{'icon':marker_206_icon}
+							);
+      marker_206.bindPopup("Mt. Hood Meadows");
+      marker_206._popup.options.maxWidth = 300;
+      map.addLayer(marker_206)
+      
+      var marker_207_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_207 = L.marker([40.6899461, 
+							-73.983563],
+							{'icon':marker_207_icon}
+							);
+      marker_207.bindPopup("Mt. Hood Meadows");
+      marker_207._popup.options.maxWidth = 300;
+      map.addLayer(marker_207)
+      
+      var marker_208_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_208 = L.marker([40.6934093, 
+							-73.9766075],
+							{'icon':marker_208_icon}
+							);
+      marker_208.bindPopup("Mt. Hood Meadows");
+      marker_208._popup.options.maxWidth = 300;
+      map.addLayer(marker_208)
+      
+      var marker_209_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_209 = L.marker([40.6936996, 
+							-73.984342],
+							{'icon':marker_209_icon}
+							);
+      marker_209.bindPopup("Mt. Hood Meadows");
+      marker_209._popup.options.maxWidth = 300;
+      map.addLayer(marker_209)
+      
+      var marker_210_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_210 = L.marker([40.6886743, 
+							-73.9667367],
+							{'icon':marker_210_icon}
+							);
+      marker_210.bindPopup("Mt. Hood Meadows");
+      marker_210._popup.options.maxWidth = 300;
+      map.addLayer(marker_210)
+      
+      var marker_211_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_211 = L.marker([40.6887298, 
+							-73.9662751],
+							{'icon':marker_211_icon}
+							);
+      marker_211.bindPopup("Mt. Hood Meadows");
+      marker_211._popup.options.maxWidth = 300;
+      map.addLayer(marker_211)
+      
+      var marker_212_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_212 = L.marker([40.6886783, 
+							-73.9667034],
+							{'icon':marker_212_icon}
+							);
+      marker_212.bindPopup("Mt. Hood Meadows");
+      marker_212._popup.options.maxWidth = 300;
+      map.addLayer(marker_212)
+      
+      var marker_213_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_213 = L.marker([40.6885227, 
+							-73.9666684],
+							{'icon':marker_213_icon}
+							);
+      marker_213.bindPopup("Mt. Hood Meadows");
+      marker_213._popup.options.maxWidth = 300;
+      map.addLayer(marker_213)
+      
+      var marker_214_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_214 = L.marker([40.6887136, 
+							-73.9664101],
+							{'icon':marker_214_icon}
+							);
+      marker_214.bindPopup("Mt. Hood Meadows");
+      marker_214._popup.options.maxWidth = 300;
+      map.addLayer(marker_214)
+      
+      var marker_215_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_215 = L.marker([40.6922744, 
+							-73.9825451],
+							{'icon':marker_215_icon}
+							);
+      marker_215.bindPopup("Mt. Hood Meadows");
+      marker_215._popup.options.maxWidth = 300;
+      map.addLayer(marker_215)
+      
+      var marker_216_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_216 = L.marker([40.6929882, 
+							-73.9825041],
+							{'icon':marker_216_icon}
+							);
+      marker_216.bindPopup("Mt. Hood Meadows");
+      marker_216._popup.options.maxWidth = 300;
+      map.addLayer(marker_216)
+      
+      var marker_217_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_217 = L.marker([40.6929637, 
+							-73.981747],
+							{'icon':marker_217_icon}
+							);
+      marker_217.bindPopup("Mt. Hood Meadows");
+      marker_217._popup.options.maxWidth = 300;
+      map.addLayer(marker_217)
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+
+
+   </script>
+
+</body>
