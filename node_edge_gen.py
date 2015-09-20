@@ -75,12 +75,12 @@ def inters_latlong(string):
     long_float = float(string.split(',')[1])
     return [lat_float, long_float]
 
-def ways_to_edge(waydict):
+def ways_to_edge(waydict, nodes):
     ways3 = {}
     for w in waydict:
-        num_el = len(ways[w])
+        num_el = len(waydict[w])
         new_w = []
-        for i in ways[w]:
+        for i in waydict[w]:
             if nodes.get(i) == None: 
                 tmp = 0
             else:
@@ -114,10 +114,14 @@ def plot_nodes_edges(nodes,edges):
             
         plt.plot(*zip(*node_list))
     plt.show()
-filename = 'map_bk_test'
-int_string, ways, nodes = extract_intersections(filename, verbose= False)
-edges = ways_to_edge(ways)
-plot_nodes_edges(nodes,edges)
+#filename = 'map_bk_test'
+#filename = 'map_extrasmall.osm'
+#int_string, ways_bk, nodes_bk = extract_intersections(filename, verbose= False)
+#edges_bk = ways_to_edge(ways_bk, nodes_bk)
+#plot_nodes_edges(nodes_bk,edges_bk)
+
+
+
 
 
 #import sys

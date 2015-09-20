@@ -17,6 +17,9 @@ int_string, ways, nodes = neg.extract_intersections(filename, verbose= False)
 edges = neg.ways_to_edge(ways, nodes)
 #neg.plot_nodes_edges(nodes,edges)
 
+print 'nodes', len(nodes)
+print 'edges', len(edges)
+
 # DEFINE SQL LOG IN 
 HOST = 'localhost'
 USER = 'root'
@@ -39,19 +42,21 @@ cursor = db_connect.cursor()
 
 cursor.execute("""
 CREATE TABLE bk_nodes(
-    nodeid BIGINT NOT NULL,
-    latitude DOUBLE(11,7) NOT NULL,
-    longitude DOUBLE(11,7) NOT NULL,
-    PRIMARY KEY (nodeid)
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    nodeid MEDIUMTEXT NOT NULL,
+    latitude DOUBLE(12,8) NOT NULL,
+    longitude DOUBLE(12,8) NOT NULL,
+    PRIMARY KEY (id)
     )
     """)
 
 cursor.execute("""
 CREATE TABLE bk_edges(
-    edgeid BIGINT NOT NULL,
-    node1 BIGINT NOT NULL,
-    node2 BIGINT NOT NULL,
-    PRIMARY KEY (edgeid)
+	id INTEGER NOT NULL AUTO_INCREMENT,
+    edgeid MEDIUMTEXT NOT NULL,
+    node1 MEDIUMTEXT NOT NULL,
+    node2 MEDIUMTEXT NOT NULL,
+    PRIMARY KEY (id)
     )
     """)
 
@@ -71,11 +76,13 @@ add_edge= ("INSERT INTO bk_edges "
 for no in nodes:
     node_data =  no, nodes[no][0],nodes[no][1]
     cursor.execute(add_node, node_data)
-    
+count = 0
 for ed in edges:
-    edge_data = ed, edges[ed][0], edges[ed][1]
-    cursor.execute(add_edge, edge_data)
+	count += 1
+	edge_data = ed, edges[ed][0], edges[ed][1]
+	cursor.execute(add_edge, edge_data)
 
+print 'edges_written', count
 # commit the changes to the db
 db_connect.commit()
 
