@@ -50,37 +50,39 @@ def bkmap_page_fancy():
 def crawl_input():
 	return render_template("input.html")
 
+@app.route('/input_2')
+def crawl_input2():
+	return render_template("input_2.html")
+
 @app.route('/output')
 def crawl_output():
-	  #pull 'ID' from input field and store it
- 	start = request.args.get('START_LOC')  #, 'BAR_LOC', 'END_LOC')
-	bar = request.args.get('BAR_LOC')
-	end = request.args.get('END_LOC')
+	start = request.args.get("START_LOC")
+	bar1 = request.args.get("BAR1")
+	bar2 = request.args.get("BAR2")
+	bar3 = request.args.get("BAR3")
+	end = request.args.get("END_LOC")
+	bar_input_list = [bar1, bar2, bar3]
+	bar_address = get_bar_address(bar1, bar2, bar3)
 
-	geolocator = Nominatim()
-
-	location = geolocator.geocode(start)
-	#put in exceptions if geolocator doesn't work
-	start_lat, start_lng = location.latitude, location.longitude
-
-
-	location = geolocator.geocode(bar)
-	bar_lat, bar_lng = location.latitude, location.longitude
-
-	location = geolocator.geocode(end)
-	end_lat, end_lng = location.latitude, location.longitude
-
+	start_tuple, end_tuple = get_start_end(start,end)
+	bar_tuple_list = get_bar_location(bar1,bar2,bar3)
 
 	node_sql = ReadNodefromSQL(cur)
 	edge_sql = ReadEdgefromSQL(cur)
 
-
-
 	node_dic = NodeSQLtoDic(node_sql)
 	edge_dic = EdgeDQLtoDic(edge_sql)
+
 	G = gen_network(node_dic, edge_dic)
-	
-	path = crawl_path(G, start_lat, start_lng, bar_lat, bar_lng, end_lat, end_lng)
-	tmp = path_node_list(path, node_dic)
- 	#return render_template('output.html', start = {start: start_lat, start_lng } , bar = {bar:bar_lat, bar_lng}, end = {end : end_lat, end_lng}, path = path, path_list = tmp)
- 	return render_template('output.html', start = start, startlat=start_lat,startlng=start_lng, bar = bar, barlat=bar_lat, barlng=bar_lng, end = end, endlat= end_lat,endlng =end_lng, path = path, path_list = tmp)
+
+	path, line_path = crawl_path(G, start_tuple, bar_tuple_list, end_tuple, node_dic, edge_dic)
+	bar_address = reorder_beer_list(bar_address, path)
+	bar_tuple_list = reorder_beer_list(bar_tuple_list, path)
+	single_path = []
+	for line in line_path:
+		single_path.extend(line)
+	bar_list = tuplebarlist_floatlist(bar_tuple_list)
+	bar_add = tuplebarlist_stringlist(bar_address)
+	bar_dic = make_bar_dic(bar_add, bar_list)
+	return render_template('output.html',  start = [start, start_tuple[0],start_tuple[1]],  bar_add =bar_add, bar_dic = bar_dic, end = [end,end_tuple[0],end_tuple[1]], path = path, path_list = single_path)
+

@@ -189,4 +189,6 @@ nn_weights = make_nearestneighborhood_weights(node_dic, edge_dic,acc_dic_allnode
 
 #addweighttoSQL(nn_weights, 'bk_weights_acc_nn')
 
+
+
 close_db()

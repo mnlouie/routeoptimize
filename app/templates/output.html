@@ -10,7 +10,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>BK Crawl Planner</title>
+<title>BKrawl Planner</title>
 
 <!-- Bootstrap core CSS -->
 <link href="../static/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
 
 <!-- Custom styles for this template -->
-<link href="starter-template.css" rel="stylesheet">
+<link href="static/css/starter-template.css" rel="stylesheet">
 
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -39,19 +39,7 @@
 
 <!-- Javascript variiable definiation -->
 <script>
-var start_js = '{{start}}'
-var startlat_js = '{{startlat}}'
-var startlng_js= '{{startlng}}'
-var bar_js = '{{bar}}'
-var barlat_js= '{{barlat}}'
-var barlng_js= '{{barlng}}'
-var end_js = '{{end}}'
-var endlat_js= '{{endlat}}'
-var endlng_js= '{{endlng}}'
 
-
-var path1 = '{{path_list[0]}}'
-var path2 = '{{path_list[1]}}'
 </script>
 
 </head>
@@ -67,7 +55,7 @@ var path2 = '{{path_list[1]}}'
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand" href="#">BK Crawl Planner</a>
+<a class="navbar-brand" href="#">BKrawl Planner</a>
 </div>
 <div id="navbar" class="collapse navbar-collapse">
 <ul class="nav navbar-nav">
@@ -82,30 +70,49 @@ var path2 = '{{path_list[1]}}'
 <br><br>
 
 
+
+
     <div class="container">
       <div class="starter-template">
-        <h3>Results:</h3>
-        <p class="lead">Check out your crawl! </p>
+        <h3>Check out your custom krawl! </h3>
       </div>
     </div>
-    <div class="container">
 
-<table class="table table-hover">
-    <tr><th>Start</th><th>Bar </th><th>End </th></tr>
-    <tr><td>{{ start }}</td><td>{{ bar }}</td><td> {{ end }}</td></tr>
+<div class="container">
+  <table class="table table-hover">
+    <tr><th>Itinerary</th><th> Address </th><th> Avaliable Beers </th>
+    <tr><td> Start </td><td>{{ start[0] }}</td><td></td>
+      {% for bar in bar_add %}
+    <tr><td>{{ bar[0] }}</td><td>{{bar[1]}}</td> <td>beers</td>
+      {% endfor %}
+    <tr><td>End </td><td>{{ end[0] }}</td><td></td>
+
     </table>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
     </div>
 
+    <div class="container">
 
-<div id="map"></div>
+  <div id="map"></div>
 
   <script>
+
+var start_js = 'Start: {{start[0]}}'
+var startlat_js = '{{start[1]}}'
+var startlng_js= '{{start[2]}}'
+
+
+var end_js = 'End: {{end[0]}}'
+var endlat_js= '{{end[1]}}'
+var endlng_js= '{{end[2]}}'
+
+
 
   // initialize the map
   L.mapbox.accessToken = 'pk.eyJ1IjoiYXN0cm9taXMiLCJhIjoiY2llb21xbWc3MGh5d3NzbTI1d2tobm9lciJ9.AIRuntjIXEdNM5ewRSysbA';
 // Create a map in the div #map
+
 
 var map = L.mapbox.map('map', 'astromis.cieomqluw0hzzsym3glv43rp8')
     .setView([40.69530000,-73.995900000], 13);
@@ -113,36 +120,43 @@ var map = L.mapbox.map('map', 'astromis.cieomqluw0hzzsym3glv43rp8')
 L.marker([startlat_js,startlng_js]).addTo(map)
     .bindPopup(start_js);
 
-L.marker([barlat_js, barlng_js]).addTo(map)
-    .bindPopup(bar_js)
-    .openPopup();
-
 L.marker([endlat_js,endlng_js]).addTo(map)
     .bindPopup(end_js);
 
-var pointA = L.LatLng(40.6715926, -73.9977694);
-var pointB = L.LatLng(40.6721973, -73.9882649);
-var pointList = [pointA, pointB];
 
-L.polyline(porintList, {color: 'red'}).addTo(map);
+var line_points = {{path_list}};
+var polyline_options = {
+    color: '#000'
+};
+
+var polyline = L.polyline(line_points, polyline_options).addTo(map);
+
+{% for bar in bar_dic %}
+var bar_js = '{{bar}}'
+var bar_latlng = {{bar_dic[bar][1:2]}}
+var arraylength = bar_latlng.length;
+for (var i = 0; i < arraylength; i++) {
+L.marker([bar_latlng[0][0], bar_latlng[0][1]]).addTo(map)
+  .bindPopup(bar_js).openPopup() 
+}
+{% endfor %}
+
 
 // zoom the map to the polyline
 //map.fitBounds(polyline.getBounds());
 
   </script>
-
+</div>
   
     <div class="container">
       <div class="starter-template">
-        <h3>Crawl Directions:</h3>
+      <!-- <h3>Krawl Directions:</h3>
         <p class="lead">  The directions from start to first bar is:
-         <br> {{ path_list[0] }} 
-          <br> The directions bar to end is:
-          <br> {{ path_list[1]}}
-        </p>
+         <br> {{ path_list}} 
+        </p> -->
 
         <h3>
-           Enjoy and remember to always crawl safely.
+           Enjoy and remember to always Krawl safely.
         </h3>
       </div>
 
@@ -159,8 +173,8 @@ L.polyline(porintList, {color: 'red'}).addTo(map);
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../../dist/js/bootstrap.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<!--script src="../../assets/js/ie10-viewport-bug-workaround.js"></script-->
 </body>
 </html>
