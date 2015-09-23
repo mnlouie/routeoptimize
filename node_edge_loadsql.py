@@ -4,7 +4,7 @@
 """
 Usage: node_edge_loadsql.py
 
-This script generates  and writes the node and edge OSM data to a mySQL db
+This script generates and writes the node and edge OSM data to a mySQL db
 """
 
 import MySQLdb
@@ -12,13 +12,15 @@ import node_edge_gen as neg
 
 
 #generate nodes and edges
-filename = 'map_bk_test'
+#filename = 'map_region2'
+filename =  'northern_bk_map'
 int_string, ways, nodes = neg.extract_intersections(filename, verbose= False)
 edges = neg.ways_to_edge(ways, nodes)
 #neg.plot_nodes_edges(nodes,edges)
 
 print 'nodes', len(nodes)
 print 'edges', len(edges)
+
 
 # DEFINE SQL LOG IN 
 HOST = 'localhost'
@@ -41,7 +43,7 @@ cursor = db_connect.cursor()
 #CREATE TABLES FOR NODES AND EDGES
 
 cursor.execute("""
-CREATE TABLE bk_nodes(
+CREATE TABLE bk_nodes_full(
     id INTEGER NOT NULL AUTO_INCREMENT,
     nodeid MEDIUMTEXT NOT NULL,
     latitude DOUBLE(12,8) NOT NULL,
@@ -51,7 +53,7 @@ CREATE TABLE bk_nodes(
     """)
 
 cursor.execute("""
-CREATE TABLE bk_edges(
+CREATE TABLE bk_edges_full(
 	id INTEGER NOT NULL AUTO_INCREMENT,
     edgeid MEDIUMTEXT NOT NULL,
     node1 MEDIUMTEXT NOT NULL,
@@ -62,11 +64,11 @@ CREATE TABLE bk_edges(
 
 # SQL CALL USED FOR INSERTING INTO DBs
 
-add_node= ("INSERT INTO bk_nodes "
+add_node = ("INSERT INTO bk_nodes_full "
            " (nodeid, latitude, longitude)"
            " VALUES (%s, %s, %s)")
 
-add_edge= ("INSERT INTO bk_edges "
+add_edge = ("INSERT INTO bk_edges_full"
            " (edgeid, node1, node2)"
            " VALUES (%s, %s, %s)")
 
