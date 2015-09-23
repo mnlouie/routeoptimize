@@ -114,7 +114,7 @@ def plot_nodes_edges(nodes,edges):
             
         plt.plot(*zip(*node_list))
     plt.show()
-#filename = 'map_bk_test'
+#filename = 'full_bklynmap'
 #filename = 'map_extrasmall.osm'
 #int_string, ways_bk, nodes_bk = extract_intersections(filename, verbose= False)
 #edges_bk = ways_to_edge(ways_bk, nodes_bk)
